@@ -5,8 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+     
+          
+       
+   
   </head>
   <body>
+    <Script>
+      //Create a promt that will ask the user how long the password will need to be
+      //Make sure the info from promt is a number save that number as a variable called passWordLength
+      
+      //return"your password needs to be longer that 8 characters" if below 8 characters 
+      //return"your password can't be longer than 128 characters" if above 128 characters
+      
+      function generatePassword(){
+        var verifiedLenght = verifyInput()
+
+        document.getElementById("password").innerHTML = verifiedLenght;
+      }
+      function verifyInput(){
+        var passWordLength = prompt("How long do you want your Password?");
+        if(isNaN(passWordLength)){
+          alert("Please enter a number")
+        }
+         else{
+           return passWordLength;
+         }
+      }
+      //When the user hits the generate password button start the loop 
+      //Use the passWordLength varieable to loop and generate one random character at a time.
+      //Math.random and an array with the different things that could be in a password?
+
+      //display the password that was generated in the text area 
+
+      </Script>
     <header>
       <h1>Password Generator</h1>
     </header>
@@ -17,7 +52,7 @@
       placeholder="Your Secure Password"
       aria-label="Generated Password"
     ></textarea>
-    <button id="generate">Generate Password</button>
+    <button id="generate" onclick="generatePassword()">Generate Password</button>
     <button id="copy">
       Copy to Clipboard
     </button>
