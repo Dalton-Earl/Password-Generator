@@ -15,27 +15,28 @@
   </head>
   <body>
     <Script>
-      //Create a promt that will ask the user how long the password will need to be
-      //Make sure the info from promt is a number save that number as a variable called passWordLength
+      
       
       
       function generatePassword(){
         var verifiedLength = verifyInput()
         var passWord = " ";
+        //Math.random and an array with the different things that could be in a password?
         var passWordParts = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9"," ","!","#","$","%","&","'","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","{","|","}","~"];
+        //Use the passWordLength varieable to loop and generate one random character at a time.
         for(i=0;i<verifiedLength;i++){
           var character = Math.floor(Math.random() * passWordParts.length);
           passWord += passWordParts[character];
           
         }
-        
         return passWord;
-        
       }
+      //display the password that was generated in the text area 
       function showPassW(){
         document.getElementById("password").innerHTML = generatePassword();
       }
-      
+      //Create a promt that will ask the user how long the password will need to be
+      //Make sure the info from promt is a number save that number as a variable called passWordLength
       function verifyInput(){
         var passWordLength = prompt("How long do you want your Password?");
         if(isNaN(passWordLength)){
@@ -45,11 +46,15 @@
            return passWordLength;
          }
       }
-      //When the user hits the generate password button start the loop 
-      //Use the passWordLength varieable to loop and generate one random character at a time.
-      //Math.random and an array with the different things that could be in a password?
+      function copy() {
+  var textarea = document.getElementById("password");
+  textarea.select();
+  document.execCommand("copy");
+}
+      
+      
 
-      //display the password that was generated in the text area 
+      
 
       </Script>
     <header>
@@ -62,8 +67,9 @@
       placeholder="Your Secure Password"
       aria-label="Generated Password"
     ></textarea>
+    
     <button id="generate" onclick=" showPassW()">Generate Password</button>
-    <button id="copy">
+    <button id="copy" onClick = "copy()">
       Copy to Clipboard
     </button>
   </body>
