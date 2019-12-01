@@ -57,20 +57,39 @@
       
 
       </Script>
-    <header>
-      <h1>Password Generator</h1>
+<div class="container-fluid">
+    <header class ="row m-2">
+        <div class="col-md-4 m-2"></div>
+      <h1 >Password Generator</h1>
+      <div class="col-md-4 m-2"></div>
     </header>
-    <h2>Generate a Password</h2>
+    
+    <div class="row">
+    <div class="col-md-4 m-2">
+      
+    </div>  
+    <div class="col-md-4 m-2">
+    <div class="card">
     <textarea
       readonly
       id="password"
       placeholder="Your Secure Password"
       aria-label="Generated Password"
     ></textarea>
-    
-    <button id="generate" onclick=" showPassW()">Generate Password</button>
-    <button id="copy" onClick = "copy()">
+  </div>
+</div>
+<div class="col-md-4 m-2"></div>
+</div>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <button class="btn btn-primary m-2" id="generate" onclick=" showPassW()">Generate Password</button>
+    <button class="btn btn-secondary m-2" id="copy" onClick = "copy()">
       Copy to Clipboard
     </button>
+  </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
   </body>
 </html>
