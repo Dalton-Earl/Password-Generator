@@ -21,16 +21,19 @@
       
       function generatePassword(){
         var verifiedLength = verifyInput()
-        var passWordParts = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9,]
+        var passWord = " ";
+        var passWordParts = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9"," ","!","#","$","%","&","'","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","{","|","}","~"];
         for(i=0;i<verifiedLength;i++){
           var character = Math.floor(Math.random() * passWordParts.length);
-        password += passWordParts.substring(character, character + 1);
+          passWord += passWordParts[character];
+          
         }
-        return password
         
-
-
-        document.getElementById("password").innerHTML = password;
+        return passWord;
+        
+      }
+      function showPassW(){
+        document.getElementById("password").innerHTML = generatePassword();
       }
       
       function verifyInput(){
@@ -59,7 +62,7 @@
       placeholder="Your Secure Password"
       aria-label="Generated Password"
     ></textarea>
-    <button id="generate" onclick="generatePassword()">Generate Password</button>
+    <button id="generate" onclick=" showPassW()">Generate Password</button>
     <button id="copy">
       Copy to Clipboard
     </button>
